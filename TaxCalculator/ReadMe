@@ -1,7 +1,6 @@
-This is a simple tax calculator I recreated in python (the original is in java).
+This is a simple tax calculator app I recreated in python (the original is in java). 
+When run, it creates a GUI that allows user input.
 
-Enter your salary and click the Calculate button.
-
-This will output a breakdown of your taxes and net salary.
+Enter your salary and click the Calculate button. This will output a breakdown of your taxes and net salary.
 
 As this is a simple version, there is no error handling.
