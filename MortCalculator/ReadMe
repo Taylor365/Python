@@ -1,0 +1,7 @@
+This is a simple Mortgage calculator app I recreated in python (the original is in java). 
+When run, it creates a GUI that allows user input.
+
+Enter the principle, term and interest rate of the mortgage and click the Calculate button. 
+This will output a breakdown of your repayments and the total cost of the loan.
+
+As this is a simple version, there is no error handling.
