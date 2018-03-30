@@ -63,6 +63,45 @@ words = 'ant baboon badger bat bear beaver camel cow cat clam cobra cougar coyot
         'duck eagle ferret fox frog goat goose hawk lion lizard monkey moose panda pelican turtle turkey weasel wolf ' \
         'wombat zebra'.split()
 
+# Each letter is weighted and weight is increased by frequency they occur in the secret word
+AIValuedLetters = {
+                "A": 4,
+                "B": 1,
+                "C": 1,
+                "D": 1,
+                "E": 4,
+                "F": 0,
+                "G": 1,
+                "H": 0,
+                "I": 2,
+                "J": 0,
+                "K": 1,
+                "L": 0,
+                "M": 0,
+                "N": 0,
+                "O": 2,
+                "P": 0,
+                "Q": 0,
+                "R": 1,
+                "S": 1,
+                "T": 1,
+                "U": 2,
+                "V": 0,
+                "W": 0,
+                "X": 0,
+                "Y": 0,
+                "Z": 0}
+
+#weighting code
+# foreach (char item in wokrds[0])
+#             {
+#                 if (item.ToString().ToLower().Equals("a"))
+#                 {
+#                     words["A"] = words["A"] + 1;
+#                 }
+#             }
+
+
 AIDictionary = []
 listOfChars = []
 
@@ -108,7 +147,7 @@ def computerGuess():
     thirdTier = 'y p w n k j r t f g h'.split()
     lastTier = 'z q x'.split()
 
-    #time.sleep(3)
+    time.sleep(3)
     if len(missedLetters) < 2:
         return firstTier[random.randint(0, len(firstTier) - 1)]
     elif len(missedLetters) < 4:
