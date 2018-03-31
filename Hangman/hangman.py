@@ -1,3 +1,4 @@
+import operator
 import random
 import time
 
@@ -65,27 +66,27 @@ words = 'ant baboon badger bat bear beaver camel cow cat clam cobra cougar coyot
 
 # Each letter is weighted and weight is increased by frequency they occur in the secret word
 AIValuedLetters = {
-                "A": 4,
-                "B": 1,
-                "C": 1,
-                "D": 1,
-                "E": 4,
+                "A": 0,
+                "B": 0,
+                "C": 0,
+                "D": 0,
+                "E": 0,
                 "F": 0,
-                "G": 1,
+                "G": 0,
                 "H": 0,
-                "I": 2,
+                "I": 0,
                 "J": 0,
-                "K": 1,
+                "K": 0,
                 "L": 0,
                 "M": 0,
                 "N": 0,
-                "O": 2,
+                "O": 0,
                 "P": 0,
                 "Q": 0,
-                "R": 1,
-                "S": 1,
-                "T": 1,
-                "U": 2,
+                "R": 0,
+                "S": 0,
+                "T": 0,
+                "U": 0,
                 "V": 0,
                 "W": 0,
                 "X": 0,
@@ -106,14 +107,18 @@ AIDictionary = []
 listOfChars = []
 
 
-def aiLearning(secretWord, listOfChars):
+def aiLearning(secretWord, listOfChars, AIValuedLetters):
     secretWordLength = len(secretWord)
     listOfChars.clear()
     for element in AIDictionary:
         if len(element) == secretWordLength:
             for i in element:
                 if i not in listOfChars:
-                    listOfChars.append(i)
+                    listOfChars.append(i.upper())
+
+    for j in range(secretWordLength):
+        if secretWord[j].upper() in AIValuedLetters:
+            AIValuedLetters[secretWord[j].upper()] = AIValuedLetters[secretWord[j].upper()] + 1
 
 
 def getRandomWord(wordList):
@@ -141,21 +146,35 @@ def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
     print()
 
 
-def computerGuess():
-    firstTier = 'a e i o u'.split()
-    secondTier = 'b m d h c l s'.split()
-    thirdTier = 'y p w n k j r t f g h'.split()
-    lastTier = 'z q x'.split()
+def computerGuess(alreadyGuessed, AIValuedLetters, listOfChars):
+    alreadyGuessedBIG = alreadyGuessed.upper()
 
-    time.sleep(3)
-    if len(missedLetters) < 2:
-        return firstTier[random.randint(0, len(firstTier) - 1)]
-    elif len(missedLetters) < 4:
-        return secondTier[random.randint(0, len(secondTier) - 1)]
-    elif 4 <= len(missedLetters):
-        return thirdTier[random.randint(0, len(thirdTier) - 1)]
+    AIValuedLetters = sorted(AIValuedLetters.items(), key=operator.itemgetter(1), reverse=True)
+    print(AIValuedLetters)
+    if len(listOfChars) < 1:
+        for key, value in AIValuedLetters:
+            if key not in alreadyGuessedBIG:
+                return key
+    elif len(listOfChars) > 0:
+        for key, value in AIValuedLetters:
+            if key not in alreadyGuessedBIG and key in listOfChars:
+                return key
+        for key, value in AIValuedLetters:
+            if key not in alreadyGuessedBIG:
+                return key
 
-    #return listOfChars[random.randint(0, len(listOfChars) - 1)]
+
+    # OLD WAY OF RANDOM GUESSING
+    # firstTier = 'a e i o u'.split()
+    # secondTier = 'b m d h c l s'.split()
+    # thirdTier = 'y p w n k j r t f g h'.split()
+    # lastTier = 'z q x'.split()
+    # if len(missedLetters) < 2:
+    #   return firstTier[random.randint(0, len(firstTier) - 1)]
+    # elif len(missedLetters) < 4:
+    #   return secondTier[random.randint(0, len(secondTier) - 1)]
+    # elif 4 <= len(missedLetters):
+    #   return thirdTier[random.randint(0, len(thirdTier) - 1)]
 
 
 def getGuess(alreadyGuessed):
@@ -174,7 +193,7 @@ def getGuess(alreadyGuessed):
                 return guess
         else:
             print('Guess a letter.')
-            guess = computerGuess()
+            guess = computerGuess(alreadyGuessed, AIValuedLetters, listOfChars)
             guess = guess.lower()
             if len(guess) != 1:
                 print('Please enter a single letter.')
@@ -216,27 +235,27 @@ while True:
                 foundAllLetters = False
                 break
         if foundAllLetters:
-            if player == '2':
-                aiLearning(secretWord, listOfChars)
             print('Yes! The secret word is "' + secretWord + '"! You have won!')
-            if secretWord not in AIDictionary:
-                AIDictionary.append(secretWord)
-            print(AIDictionary)
-            print(listOfChars)
+            if player == '2':
+                aiLearning(secretWord, listOfChars, AIValuedLetters)
+                if secretWord not in AIDictionary:
+                    AIDictionary.append(secretWord)
+                print(AIDictionary)
+                print(listOfChars)
             gameIsDone = True
     else:
         missedLetters = missedLetters + guess
 
         if len(missedLetters) == len(HANGMANPICS) - 1:
             displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
-            if player == '2':
-                aiLearning(secretWord, listOfChars)
             print('You have run out of guesses!\nAfter ' + str(len(missedLetters)) + ' missed guesses and ' +
                   str(len(correctLetters)) + ' correct guesses, the word was "' + secretWord + '"')
-            if secretWord not in AIDictionary:
-                AIDictionary.append(secretWord)
-            print(AIDictionary)
-            print(listOfChars)
+            if player == '2':
+                aiLearning(secretWord, listOfChars, AIValuedLetters)
+                if secretWord not in AIDictionary:
+                    AIDictionary.append(secretWord)
+                print(AIDictionary)
+                print(listOfChars)
             gameIsDone = True
 
     if gameIsDone:
