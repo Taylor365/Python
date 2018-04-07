@@ -105,11 +105,8 @@ AIValuedLetters = {
 
 AIDictionary = []
 listOfChars = []
-global play
 play = 0
-global win
 win = 0
-global lose
 lose = 0
 
 
@@ -224,10 +221,12 @@ def getGuess(alreadyGuessed):
                 return guess
 
 
-def playAgain(play):
+def playAgain():
+    print('Wins =' + str(win))
+    print('Losses =' + str(lose))
     print('Do you want to play again? (yes or no)')
-
-    if play == 5:
+    global play
+    if play == 1:
         return input().lower().startswith('y')
     else:
         play += 1
@@ -287,7 +286,7 @@ while True:
             gameIsDone = True
 
     if gameIsDone:
-        if playAgain(play):
+        if playAgain():
             missedLetters = ''
             correctLetters = ''
             gameIsDone = False
