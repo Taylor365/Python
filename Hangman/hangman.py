@@ -105,17 +105,27 @@ AIValuedLetters = {
 
 AIDictionary = []
 listOfChars = []
+global play
+play = 0
+global win
+win = 0
+global lose
+lose = 0
 
 
-def aiLearning(secretWord, listOfChars, AIValuedLetters):
+def aiGetChars(secretWord, listOfChars):
     secretWordLength = len(secretWord)
     listOfChars.clear()
     for element in AIDictionary:
         if len(element) == secretWordLength:
             for i in element:
-                if i not in listOfChars:
-                    listOfChars.append(i.upper())
+                k = i.upper()
+                if k not in listOfChars:
+                    listOfChars.append(k)
 
+
+def aiIncrementLetters(secretWord, AIValuedLetters):
+    secretWordLength = len(secretWord)
     for j in range(secretWordLength):
         if secretWord[j].upper() in AIValuedLetters:
             AIValuedLetters[secretWord[j].upper()] = AIValuedLetters[secretWord[j].upper()] + 1
@@ -146,11 +156,20 @@ def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
     print()
 
 
-def computerGuess(alreadyGuessed, AIValuedLetters, listOfChars):
+def computerGuess(alreadyGuessed, AIValuedLetters, listOfChars, correctLetters, secretWord):
     alreadyGuessedBIG = alreadyGuessed.upper()
+    secretWordLength = len(secretWord)
 
     AIValuedLetters = sorted(AIValuedLetters.items(), key=operator.itemgetter(1), reverse=True)
     print(AIValuedLetters)
+    if len(correctLetters) > 2:
+        for element in AIDictionary:
+            if len(element) == secretWordLength:
+                if correctLetters[0] in element and correctLetters[1] in element and correctLetters[2] in element:
+                    for i in element:
+                        if i not in alreadyGuessed:
+                            return i
+
     if len(listOfChars) < 1:
         for key, value in AIValuedLetters:
             if key not in alreadyGuessedBIG:
@@ -193,7 +212,7 @@ def getGuess(alreadyGuessed):
                 return guess
         else:
             print('Guess a letter.')
-            guess = computerGuess(alreadyGuessed, AIValuedLetters, listOfChars)
+            guess = computerGuess(alreadyGuessed, AIValuedLetters, listOfChars, correctLetters, secretWord)
             guess = guess.lower()
             if len(guess) != 1:
                 print('Please enter a single letter.')
@@ -205,9 +224,14 @@ def getGuess(alreadyGuessed):
                 return guess
 
 
-def playAgain():
+def playAgain(play):
     print('Do you want to play again? (yes or no)')
-    return input().lower().startswith('y')
+
+    if play == 5:
+        return input().lower().startswith('y')
+    else:
+        play += 1
+        return 'y'
 
 
 print('Would you like to play, or let the computer try?')
@@ -223,6 +247,8 @@ gameIsDone = False
 
 while True:
     displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
+    if player == '2':
+        aiGetChars(secretWord, listOfChars)
 
     guess = getGuess(missedLetters + correctLetters)
 
@@ -236,8 +262,9 @@ while True:
                 break
         if foundAllLetters:
             print('Yes! The secret word is "' + secretWord + '"! You have won!')
+            win += 1
             if player == '2':
-                aiLearning(secretWord, listOfChars, AIValuedLetters)
+                aiIncrementLetters(secretWord, AIValuedLetters)
                 if secretWord not in AIDictionary:
                     AIDictionary.append(secretWord)
                 print(AIDictionary)
@@ -248,10 +275,11 @@ while True:
 
         if len(missedLetters) == len(HANGMANPICS) - 1:
             displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
+            lose += 1
             print('You have run out of guesses!\nAfter ' + str(len(missedLetters)) + ' missed guesses and ' +
                   str(len(correctLetters)) + ' correct guesses, the word was "' + secretWord + '"')
             if player == '2':
-                aiLearning(secretWord, listOfChars, AIValuedLetters)
+                aiIncrementLetters(secretWord, AIValuedLetters)
                 if secretWord not in AIDictionary:
                     AIDictionary.append(secretWord)
                 print(AIDictionary)
@@ -259,7 +287,7 @@ while True:
             gameIsDone = True
 
     if gameIsDone:
-        if playAgain():
+        if playAgain(play):
             missedLetters = ''
             correctLetters = ''
             gameIsDone = False
