@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5bf50cd8-2c58-4f6b-9c19-27c928f1d70a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DungeonHeroes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DungeonHeroes.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/Npc.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/Npc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/Quest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/Quest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/Shop.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/Shop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/Town.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/Town.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/NPCInteraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/NPCInteraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/questing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/questing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/shopping.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/shopping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-    </list>
+    <list default="true" id="5bf50cd8-2c58-4f6b-9c19-27c928f1d70a" name="Default" comment="Fleshed out questing and shopping mechanics." />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,6 +245,14 @@
       <option name="presentableId" value="Default" />
       <updated>1548508192055</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fleshed out questing and shopping mechanics.">
+      <created>1552422553848</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1552422553848</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -269,15 +263,15 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3298292" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6284476" visible="true" weight="0.3598131" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6284476" weight="0.3598131" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49921197" weight="0.3995327" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49960598" weight="0.32943925" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49960598" weight="0.32943925" />
       <window_info anchor="bottom" id="Python Console" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.3715524" side_tool="true" visible="true" weight="0.3598131" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.500394" side_tool="true" visible="true" weight="0.3598131" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -287,6 +281,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="Fleshed out questing and shopping mechanics." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fleshed out questing and shopping mechanics." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
