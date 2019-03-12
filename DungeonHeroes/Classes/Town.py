@@ -30,6 +30,7 @@ class InitialiseTown(object):
     def addDungeon(self, newDungeon):
         self.dungeon = newDungeon
 
+
 def createTown(townChoice):
     enemies = Enemy.createEnemies(townChoice)
 
@@ -43,7 +44,10 @@ def createTown(townChoice):
             shop=None,
             npcs=[],
             quests=[],
-            desc='''A once thriving town, now scarce and barren. In the center stand a huge Monastery with a spiked tower that holds a clock and bell. The clock doesn't seem to work and dark clouds surround the big structure. There is also a few houses along the road with a shop.'''
+            desc='''A once thriving town, now scarce and barren. 
+            In the center stand a huge Monastery with a spiked tower that holds a clock and bell. 
+            The clock doesn't seem to work and dark clouds surround the big structure. 
+            There is also a few houses along the road with a shop.'''
         )
 
         # Creating Dungeon
@@ -62,28 +66,25 @@ def createTown(townChoice):
         cardium.addDungeon(monastery)
 
         # Creating Quests
-        # name, desc, trigger, reqToFinish, reward, finished
+        # name, desc, stage, rewardtype, reward, finished
         quest1 = Quest.InitialiseQuest('Bones',
-                       '''Asha requires bones for her potion. Collect 5 bones from skeletons in the Monestary.''',
-                       1, 1, 1,
-                       False)
+                       '''Asha requires bones for her potion. Collect 3 bones from skeletons in the Monestary.''',
+                       'begin', 'gold', 25, False)
         quest2 = Quest.InitialiseQuest('Greed',
                        '''Grizzly's greed knows no bounds. He has found an extra special weapon you could use, but requires the coin! Collect 50 gold and Grizzly will hand it over...''',
-                       1, 1, 1,
-                       False)
+                       'begin', 'item', 'INSERT LEGENDARY ITEM HERE', False)
         quest3 = Quest.InitialiseQuest('From The Ashes',
-                       '''Clear out the Monastery off skellingtons and bring life back to the town!''',
-                       1, 1, 1,
-                       False)
+                       '''Clear out the Monastery of skellingtons and bring life back to the town!''',
+                       'begin', 'gold', 75, False)
 
         # Creating NPCs
         # name, quest, shopKeep, desc
         asha = Npc.InitialiseNpc(
-            'Asha', quest1, False, 'An old sorceress. She has lived in Cardium her entire life.')
+            'Asha', True, quest1, False, 'An old sorceress. She has lived in Cardium her entire life.')
         grizzly = Npc.InitialiseNpc(
-            'Grizzly', quest2, True, 'A greedy shopkeeper. Only interested if you have coin.')
+            'Grizzly', True, quest2, True, 'A greedy shopkeeper. Only interested if you have coin.')
         kretian = Npc.InitialiseNpc(
-            'Kretian', quest3, False, 'An old mercenary. He is blind but nothing escapes him.')
+            'Kretian', True, quest3, False, 'An old mercenary. He is blind but nothing escapes him.')
 
         # Add Npcs to Town
         cardium.addNpc(asha)
@@ -131,28 +132,25 @@ def createTown(townChoice):
         duskValley.addDungeon(mineshaft)
 
         # Creating Quests
-        # name, desc, trigger, reqToFinish, reward, finished
+        # name, desc, stage, rewardtype, reward, finished
         quest1 = Quest.InitialiseQuest('Collect 10 coins',
                        '''Collect 10 coins for a reward.''',
-                       1, 1, 1,
-                       False)
+                       'begin', 'item', 'INSERT COOL SHIELD', False)
         quest2 = Quest.InitialiseQuest('Saviour',
                        '''Shellies dad is inslaved by the demon king, slay the demon king to save her dad...''',
-                       1, 1, 1,
-                       False)
-        quest3 = Quest.InitialiseQuest('Kill 15 slimes',
-                       '''Kill 15 slimes for a reward.''',
-                       1, 1, 1,
-                       False)
+                       'begin', 'item', 'INSERT LEGENDARY WEAPON', False)
+        quest3 = Quest.InitialiseQuest('Kill 2 slimes',
+                       '''Kill 2 slimes for a reward.''',
+                       'begin', 'gold', 25, False)
 
         # Creating NPCs
         # name, quest, shopKeep, desc
         geoff = Npc.InitialiseNpc(
-            'Geoff', quest1, True, "A smelly villager. He doesn't like baths")
+            'Geoff', True, quest1, True, "A smelly villager. He doesn't like baths")
         shelly = Npc.InitialiseNpc(
-            'Shelly', quest2, False, 'A beautiful princess.')
+            'Shelly', True, quest2, False, 'A beautiful princess.')
         nial = Npc.InitialiseNpc(
-            'Nial', quest3, False, 'Nial the legendary miner.')
+            'Nial', True, quest3, False, 'Nial the legendary miner.')
 
         # Add Npcs to Town
         duskValley.addNpc(shelly)
@@ -205,28 +203,25 @@ def createTown(townChoice):
         # Creating Quests
         # name, desc, trigger, reqToFinish, reward, finished
         quest1 = Quest.InitialiseQuest('Phantom Skulls',
-                       '''Thierican needs Phantom Skulls for his potion. Collect 10 Phantom Skulls from Phantoms from the Isle of Mist.''',
-                       1, 1, 1,
-                       False)
+                       '''Thierican needs Phantom Skulls for his potion. Collect 2 Phantom Skulls from Phantoms from the Isle of Mist.''',
+                       'begin', 'gold', 20, False)
         quest2 = Quest.InitialiseQuest('Sphinx Hearts',
-                       '''Lariyan needs Sphinx Hearts to have DNA tests on. Collect 5 Sphinx Hearts for him. You will have to kill Sphinxs. Remember, it will be harder than you think...''',
-                       1, 1, 1,
-                       False)
+                       '''Lariyan needs Sphinx Hearts to have DNA tests on. Collect 1 Sphinx Hearts for him. You will have to kill Sphinxs. Remember, it will be harder than you think...''',
+                       'begin', 'item', 'INSERT COOL WEAPON', False)
         quest3 = Quest.InitialiseQuest('Goblin Trouble',
-                       '''Zeaph is having a bit of a hard time with Goblins. He needs your help! Help him by killing 20 Goblins and he will reward you specially''',
-                       1, 1, 1,
-                       False)
+                       '''Zeaph is having a bit of a hard time with Goblins. He needs your help! Help him by killing the GOBLIN KING''',
+                       'begin', 'item', 'INSERT LEGENDARY WEAPON', False)
 
         # Creating NPCs
-        # name, quest, shopKeep, desc
+        # name, hasquest, quest, shopKeep, desc
         thierican = Npc.InitialiseNpc(
-            'Thierican', quest1, True,
+            'Thierican', True, quest1, True,
             'An old wizard. He is very powerful and smart... His spells can destory anything!')
         lariyan = Npc.InitialiseNpc(
-            'Lariyan', quest2, False,
+            'Lariyan', True, quest2, False,
             "A young scientist. He is very cheeky and you won't see him outside his broken down lab.")
         zeaph = Npc.InitialiseNpc(
-            'Zeaph', quest3, False,
+            'Zeaph', True, quest3, False,
             'He is a wonderer. He has no job and always gets himself tied up... But if given a chance, he will leave you dead!')
 
         # Add Npcs to Town
@@ -277,27 +272,24 @@ def createTown(townChoice):
         # Creating Quests
         # name, desc, trigger, reqToFinish, reward, finished
         quest1 = Quest.InitialiseQuest('Bananas',
-                       '''Bob requires bananas for his banana bread . Collect 10 bananas from the farm at the edge of the village.''',
-                       1, 1, 1,
-                       False)
+                       '''Bob requires bananas for his banana bread . Collect 2 bananas from the farm at the edge of the village.''',
+                       'begin', 'gold', 25, False)
         quest2 = Quest.InitialiseQuest('Jolly',
                        '''Jolly Joeys shop is haunted help him by terminating the ghost in his shop....''',
-                       1, 1, 1,
-                       False)
+                       'begin', 'gold', 55, False)
         quest3 = Quest.InitialiseQuest('Dragon scale',
                        '''Help the gready king by killing the dragon and bringing back it's scale in return you'll recieve a Legendary item.!''',
-                       1, 1, 1,
-                       False)
+                       'begin', 'item', 'INSERT LEGENDARY ITEM', False)
 
         # Creating NPCs
         # name, quest, shopKeep, desc
         bob = Npc.InitialiseNpc(
-            'Bob', quest1, False,
+            'Bob', True, quest1, False,
             'An old farmer. He has lived all his life in his farm and now is next in line to inherite the farm .')
         joe = Npc.InitialiseNpc(
-            'Joey', quest2, True, 'A friendly shopkeeper. Always has what you need.')
+            'Joey', True, quest2, True, 'A friendly shopkeeper. Always has what you need.')
         kingEval = Npc.InitialiseNpc(
-            'eval', quest3, False, 'An rich, gready king. He owns the town so he thinks he owns everyone.')
+            'eval', True, quest3, False, 'An rich, gready king. He owns the town so he thinks he owns everyone.')
 
         # Add Npcs to Town
         evillage.addNpc(bob)

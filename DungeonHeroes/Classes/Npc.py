@@ -1,8 +1,9 @@
 class InitialiseNpc(object):
     # Create NPC
-    def __init__(self, name, quest, shopKeep, desc):  # Constructor
+    def __init__(self, name, hasquest, quest, shopKeep, desc):  # Constructor
         self.name = name
-        self.quest = quest  # Check if they have a quest
+        self.hasquest = hasquest # Check if they have a quest
+        self.quest = quest  # Their quest
         self.shopKeep = shopKeep  # Check if they are shopkeeper
         self.desc = desc  # Description of the Npc
 

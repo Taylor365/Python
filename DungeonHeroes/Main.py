@@ -1,7 +1,7 @@
 import time
 import random
 from Classes import Weapon, Shield, Character, Town
-from Functions import randomRoll, combat
+from Functions import randomRoll, combat, NPCInteraction
 
 
 welcomeMessage = '''           
@@ -45,7 +45,6 @@ chooseCharacterMenu = '''Please choose a character:
 2 - Wizard
 3 - Archer
 4 - Warrior'''
-
 initialMenu = '''Choose your Faith:
 1 - Begin
 2 - Show Your Character Information
@@ -72,8 +71,10 @@ while (isgameover == False):
         print()
         if initialChoice == '1':
             print('***************************~~~~Prologue~~~~***************************')
-            print(
-                'You come to a signpost at the end of a long, dusty road. It reads, "Turn back. Foul creatures have taken over this land. Some brave townsfolk take shelter in the town, but I would call them MAD!". Press ENTER to continue...')
+            print('''You come to a signpost at the end of a long, dusty road. 
+                It reads, "Turn back. Foul creatures have taken over this land. 
+                Some brave townsfolk take shelter in the town, but I would call them MAD!". 
+                Press ENTER to continue...''')
             temp = input()
             print('Your gaze rises to the skies..')
             for i in range(4):
@@ -94,7 +95,7 @@ while (isgameover == False):
                 # THE DIRT PATH CODE
                 while (path == 'dirtPath'):
                     pathChance = randomRoll.rollDice(0, 10)
-                    print('Path = ' + str(pathChance))
+                    # print('Path = ' + str(pathChance))
                     time.sleep(2)
                     # TODO - Rework the random encounter between towns
                     if pathChance == 11:
@@ -150,15 +151,13 @@ while (isgameover == False):
                         print('Welcome to ' + town.shop.name)
                         print()
                         print()  # ShopKeeper greeting
-                        print()  # ShopKeeper Menu
-                        input('Press ENTER to continue: ')
+                        NPCInteraction.interaction(town.shop.shopkeeper, town, player)
                     elif townChoice == '2':
                         # Do shop
                         print('You are now in ' + town.npcs[0].name + "'s house")
                         print()
                         print()  # Npc greeting
-                        print()  # Npc Menu
-                        input('Press ENTER to continue: ')
+                        NPCInteraction.interaction(town.npcs[0], town, player)
                     elif townChoice == '3' and town.dungeon.cleared == False:
                         # Do shop
                         print('Welcome to the darkness of ' + town.dungeon.name)

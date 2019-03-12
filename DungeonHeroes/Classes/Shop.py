@@ -14,3 +14,16 @@ class InitialiseShop(object):
 
     def infoShort(self):
         print(self.name)
+
+    def infoInventory(self):
+        for item in self.inventory:
+            item.infoShort()
+
+    def buychat(self):
+        print('That is a mighty fine choice. Please, take a look at my goods: ')
+
+    def sellchat(self):
+        print('What have you got to offer fine warrior? ')
+
+    def leavechat(self):
+        print('Come back soon! :)')
