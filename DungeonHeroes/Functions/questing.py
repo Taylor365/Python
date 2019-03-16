@@ -12,7 +12,7 @@ def start(npc, player):
         if count == npc.quest.questAmount:
             npc.quest.stage = "complete"
             print(npc.name + ' has taken ' + npc.quest.name.lower() + ' from you.')
-    elif npc.quest.rewardtype == 'gold':
+    elif npc.quest.questAmount > 5:
         if player.gold >= npc.quest.questAmount:
             npc.quest.stage = "complete"
             player.gold -= npc.quest.questAmount
