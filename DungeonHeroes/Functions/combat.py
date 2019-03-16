@@ -2,7 +2,7 @@ import time
 from Functions import moveRoll
 
 
-def combat(player, enemy):
+def fight(player, enemy):
     print()
     print('Enemy is: ')
     enemy.info()

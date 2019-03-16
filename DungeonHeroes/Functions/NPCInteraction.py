@@ -6,12 +6,14 @@ def interaction(Npc, Town, player):
     finished = False
     while finished == False:
         if Npc.shopKeep == True:
-            shopChoice = input('1 - Talk\n2 - Shop\n3 - Exit\n\nSelect Your Choice: ')
+            shopChoice = input('1 - Talk\n2 - Shop\n3 - Quest\n4 - Exit\n\nSelect Your Choice: ')
             if shopChoice == '2':
                 shopping.start(player, Town.shop)
             elif shopChoice == '3':
+                questing.start(Npc, player)
+            elif shopChoice == '4':
                 finished = True
-        if Npc.shopKeep == False:
+        else:
             if Npc.hasquest == True:
                 questChoice = input('1 - Talk\n2 - Quest\n3 - Exit\n\nSelect Your Choice: ')
                 if questChoice == '2':

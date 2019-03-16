@@ -124,7 +124,7 @@ while (isgameover == False):
                         path = 'town'
 
                 # Pick random town of the 4
-                townToVisit = random.choice(townsnotcompleted)
+                townToVisit = 1#random.choice(townsnotcompleted)
 
                 town = Town.createTown(townToVisit)
                 townFinished = False
@@ -217,10 +217,10 @@ while (isgameover == False):
                             enemyCount = len(enemies) - 1
                             enemy = enemies[random.randint(0, enemyCount)]
                             if enemy.enemyType == 'normal':
-                                battle = combat(player, enemy)
+                                battle = combat.fight(player, enemy)
                                 if battle == player:
                                     enemies.remove(enemy)
-                                    player.info()
+                                    # player.info()
                                 if battle == enemy:
                                     print('You Lose')
                                     isgameover = True
@@ -236,7 +236,7 @@ while (isgameover == False):
                             print()
                             print()
                             enemy = enemies[0]
-                            battle = combat(player, enemy)
+                            battle = combat.fight(player, enemy)
                             if battle == player:
                                 print('You Beat the Boss and the Dungeon!! The spoils are yours! :)')
                                 enemies.remove(enemy)

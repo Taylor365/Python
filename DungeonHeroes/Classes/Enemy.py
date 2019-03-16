@@ -86,7 +86,7 @@ def createEnemies(townChoice):
             enemyType='boss',
             desc='''The King of Skeletons. He holds the power to command all Skellingtons.''',
             treasureClass=10,
-            goldDrop=random.randint(10, 20),
+            goldDrop=random.randint(10, 15),
             expDrop=10
         )
 
@@ -109,7 +109,7 @@ def createEnemies(townChoice):
 
         chickenflesh = Item.InitialiseItem(
             name='Chicken flesh',
-            desc='colected from zombie chickens',
+            desc='collected from zombie chickens',
             effect=0,
             quest=True,
             cost=0
@@ -121,7 +121,7 @@ def createEnemies(townChoice):
             hp=10,
             damage=random.randint(5, 10),
             enemyType='normal',
-            desc='''its gross its disgusting its the slime  !''',
+            desc='''its gross, its disgusting, its the slime!''',
             treasureClass=1,
             goldDrop=0,
             expDrop=2
@@ -133,7 +133,7 @@ def createEnemies(townChoice):
             hp=5,
             damage=random.randint(3, 7),
             enemyType='boss',
-            desc='''what do you think its a chicken zombie!''',
+            desc='''what do you think, its a chicken zombie!''',
             treasureClass=1,
             goldDrop=0,
             expDrop=1
@@ -157,9 +157,9 @@ def createEnemies(townChoice):
             cost=0
         )
 
-        sphixnHearts = Item.InitialiseItem(
-            name='Sphixn Hearts',
-            desc='This heart can be acquired by killing a Sphixn',
+        SphinxHearts = Item.InitialiseItem(
+            name='Sphinx Hearts',
+            desc='This heart can be acquired by killing a Sphinx',
             effect=0,
             quest=True,
             cost=0
@@ -179,8 +179,8 @@ def createEnemies(townChoice):
 
         phantom.addItemDrop(phantomSkulls)
 
-        sphixn = InitialiseEnemy(
-            name='Sphixn',
+        Sphinx = InitialiseEnemy(
+            name='Sphinx',
             hp=5,
             damage=random.randint(3, 7),
             enemyType='normal',
@@ -190,7 +190,7 @@ def createEnemies(townChoice):
             expDrop=1
         )
 
-        sphixn.addItemDrop(sphixnHearts)
+        Sphinx.addItemDrop(SphinxHearts)
 
         goblin = InitialiseEnemy(
             name='Goblin',
@@ -215,7 +215,7 @@ def createEnemies(townChoice):
         )
 
         enemies.append(phantom)
-        enemies.append(sphixn)
+        enemies.append(Sphinx)
         enemies.append(goblin)
 
         # Boss of the Dungeon

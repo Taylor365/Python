@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5bf50cd8-2c58-4f6b-9c19-27c928f1d70a" name="Default" comment="Fleshed out questing and shopping mechanics." />
+    <list default="true" id="5bf50cd8-2c58-4f6b-9c19-27c928f1d70a" name="Default" comment="Fleshed out questing and shopping mechanics.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/Enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/Enemy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/Quest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/Quest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/Town.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/Town.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/NPCInteraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/NPCInteraction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/combat.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/combat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/questing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/questing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,13 +19,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/Town.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="285" column="32" lean-forward="true" selection-start-line="285" selection-start-column="32" selection-end-line="285" selection-end-column="32" />
+            <state relative-caret-position="306">
+              <caret line="71" column="53" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
               <folding>
                 <element signature="e#97#1070#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/Enemy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1188">
+              <caret line="79" column="39" selection-start-line="79" selection-start-column="39" selection-end-line="79" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#76#1015#0" />
               </folding>
             </state>
           </provider>
@@ -31,11 +53,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="true" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/Item.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="20" selection-start-column="20" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/Dungeon.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="32" selection-start-column="32" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Functions/NPCInteraction.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="154">
+              <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -46,26 +86,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Functions/questing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+            <state relative-caret-position="572">
+              <caret line="26" column="55" lean-forward="true" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Functions/shopping.py">
+        <entry file="file://$PROJECT_DIR$/Functions/combat.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1210">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="44">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/Quest.py">
+        <entry file="file://$PROJECT_DIR$/Classes/Character.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+            <state relative-caret-position="219">
+              <caret line="211" column="8" selection-start-line="211" selection-start-column="8" selection-end-line="216" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#5110#6980#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,22 +126,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="157" column="31" lean-forward="true" selection-start-line="157" selection-start-column="31" selection-end-line="157" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#138#1575#0" />
-                <element signature="e#1598#1676#0" />
-                <element signature="e#1692#1771#0" />
-                <element signature="e#3593#4529#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -103,6 +134,13 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>bones</find>
+      <find>townchoice</find>
+      <find>exists</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -136,16 +174,16 @@
         <option value="$PROJECT_DIR$/Objects/Town.py" />
         <option value="$PROJECT_DIR$/Functions/moveRoll.py" />
         <option value="$PROJECT_DIR$/Classes/Character.py" />
-        <option value="$PROJECT_DIR$/Classes/Enemy.py" />
-        <option value="$PROJECT_DIR$/Functions/combat.py" />
         <option value="$PROJECT_DIR$/Classes/Shop.py" />
         <option value="$PROJECT_DIR$/Functions/shopping.py" />
-        <option value="$PROJECT_DIR$/Main.py" />
         <option value="$PROJECT_DIR$/Classes/Npc.py" />
-        <option value="$PROJECT_DIR$/Functions/NPCInteraction.py" />
-        <option value="$PROJECT_DIR$/Functions/questing.py" />
+        <option value="$PROJECT_DIR$/Classes/Enemy.py" />
         <option value="$PROJECT_DIR$/Classes/Quest.py" />
+        <option value="$PROJECT_DIR$/Functions/combat.py" />
+        <option value="$PROJECT_DIR$/Main.py" />
         <option value="$PROJECT_DIR$/Classes/Town.py" />
+        <option value="$PROJECT_DIR$/Functions/questing.py" />
+        <option value="$PROJECT_DIR$/Functions/NPCInteraction.py" />
       </list>
     </option>
   </component>
@@ -161,6 +199,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -182,12 +221,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -257,21 +295,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13396375" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3298292" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6284476" weight="0.3598131" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49921197" weight="0.3995327" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49960598" weight="0.32943925" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6272656" visible="true" weight="0.3598131" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49802995" weight="0.3995327" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49960598" weight="0.32943925" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49921197" weight="0.32943925" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49960598" weight="0.32943925" />
       <window_info anchor="bottom" id="Python Console" order="9" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.500394" side_tool="true" visible="true" weight="0.3598131" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.37273443" side_tool="true" visible="true" weight="0.3598131" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -296,13 +335,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Classes/Item.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Weapon.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -341,33 +373,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Functions/combat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Dungeon.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="32" selection-start-column="32" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Enemy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="24" />
-          <folding>
-            <element signature="e#76#1015#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Functions/moveRoll.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -396,52 +401,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main.py">
+    <entry file="file://$PROJECT_DIR$/Classes/Enemy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="157" column="31" lean-forward="true" selection-start-line="157" selection-start-column="31" selection-end-line="157" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#138#1575#0" />
-            <element signature="e#1598#1676#0" />
-            <element signature="e#1692#1771#0" />
-            <element signature="e#3593#4529#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Functions/NPCInteraction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Functions/questing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Quest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Character.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="131" selection-start-line="131" selection-end-line="131" />
+        <state relative-caret-position="1188">
+          <caret line="79" column="39" selection-start-line="79" selection-start-column="39" selection-end-line="79" selection-end-column="39" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#97#5038#0" />
-            <element signature="e#5110#6980#0" />
+            <element signature="e#76#1015#0" />
           </folding>
         </state>
       </provider>
@@ -453,6 +419,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Item.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="20" selection-start-column="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Dungeon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" selection-start-column="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Functions/combat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="222" column="38" selection-start-line="222" selection-start-column="38" selection-end-line="222" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#3593#4529#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Quest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Character.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="211" column="8" selection-start-line="211" selection-start-column="8" selection-end-line="216" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#5110#6980#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/Town.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="71" column="53" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
+          <folding>
+            <element signature="e#97#1070#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/Npc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -460,12 +489,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/Town.py">
+    <entry file="file://$PROJECT_DIR$/Functions/questing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="285" column="32" lean-forward="true" selection-start-line="285" selection-start-column="32" selection-end-line="285" selection-end-column="32" />
+        <state relative-caret-position="572">
+          <caret line="26" column="55" lean-forward="true" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Functions/NPCInteraction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
           <folding>
-            <element signature="e#97#1070#0" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
