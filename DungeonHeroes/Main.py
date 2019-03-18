@@ -54,7 +54,7 @@ isgameover = False
 townsnotcompleted = [1, 2, 3, 4]
 player = None
 
-while (isgameover == False):
+while not isgameover:
     print(welcomeMessage)
     time.sleep(5)
     for i in range(4):
@@ -64,7 +64,7 @@ while (isgameover == False):
     characterChoice = input('Choose your Character: ')
     player = Character.create(characterChoice)
     print()
-    while (isgameover == False):
+    while not isgameover:
         print(initialMenu)
         print()
         initialChoice = input('Make your choice: ')
@@ -89,15 +89,15 @@ while (isgameover == False):
             print()
 
             GAMEFINISHED = False
-            while (GAMEFINISHED != True):
+            while not GAMEFINISHED:
                 # PATH CHOICE - A TOWN (30%) OR DIRT ROAD(70%)
 
                 # THE DIRT PATH CODE
-                while (path == 'dirtPath'):
+                while path == 'dirtPath':
                     pathChance = randomRoll.rollDice(0, 10)
                     # print('Path = ' + str(pathChance))
                     time.sleep(2)
-                    # TODO - Rework the random encounter between towns
+                    # TODO - Rework the random encounter between towns / tutorial
                     if pathChance == 11:
                         print('The winds howl. You come across another long dusty path.....Press ENTER to continue')
                         temp = input()
@@ -129,17 +129,18 @@ while (isgameover == False):
                 town = Town.createTown(townToVisit)
                 townFinished = False
                 # THE TOWN CODE
-                while (path == 'town' and townFinished == False and GAMEFINISHED == False):
+                while path == 'town' and not townFinished and not GAMEFINISHED:
                     time.sleep(2)
                     print()
                     town.info()
-                    print()
+                    print() # TODO: Add items to shops and test transactions occur as expected
                     print('1 - Visit ' + town.shop.name + ' Shop')
                     print('2 - Visit ' + town.npcs[0].name + "'s house")
-                    if town.dungeon.cleared == False:
-                        print('3 - Enter Dungeon: ' + town.dungeon.name)
+                    print('3 - Talk to ' + town.npcs[2].name + " outside " + town.dungeon.name)
+                    if not town.dungeon.cleared:
+                        print('4 - Enter Dungeon: ' + town.dungeon.name)
                     else:
-                        print('4 - The Dungeon is complete - Move on to the Next Town?')
+                        print('5 - The Dungeon is complete - Move on to the Next Town?')
 
                     print()
                     townChoice = input('Make your choice: ')
@@ -153,18 +154,22 @@ while (isgameover == False):
                         print()  # ShopKeeper greeting
                         NPCInteraction.interaction(town.shop.shopkeeper, town, player)
                     elif townChoice == '2':
-                        # Do shop
                         print('You are now in ' + town.npcs[0].name + "'s house")
                         print()
                         print()  # Npc greeting
                         NPCInteraction.interaction(town.npcs[0], town, player)
-                    elif townChoice == '3' and town.dungeon.cleared == False:
+                    elif townChoice == '3':
+                        print('You are talking to ' + town.npcs[2].name)
+                        print()
+                        print()  # Npc greeting
+                        NPCInteraction.interaction(town.npcs[2], town, player)
+                    elif townChoice == '4' and not town.dungeon.cleared:
                         # Do shop
                         print('Welcome to the darkness of ' + town.dungeon.name)
                         print()
 
                         # Gear Equipping
-                        if (len(player.inventory) < 1):
+                        if len(player.inventory) < 1:
                             print('You have nothing in your inventory!! Uh Oh!')
                         else:
                             gearChoice = '1'
@@ -182,7 +187,7 @@ while (isgameover == False):
                                     'Current weapon is ' + printCurrentWeapon + '\nCurrent shield is ' + printCurrentShield)
                                 print('\n1 - Equip new Gear\n2 - Keep current Gear')
                                 gearChoice = input('Your choice: ')
-                                if (gearChoice == '1'):
+                                if gearChoice == '1':
                                     print('\nWhich weapon would you like to equip?\n')
                                     for item in player.inventory:
                                         if type(item) is Weapon:
@@ -227,7 +232,7 @@ while (isgameover == False):
                                     GAMEFINISHED = True
 
                         # FIGHT THE BOSS + Back to town
-                        if (isgameover != True):
+                        if not isgameover:
                             print()
                             print()
                             print('NO MORE NORMAL ENEMIES, TIME FOR THE BOSS! :o')
@@ -252,17 +257,7 @@ while (isgameover == False):
                                 GAMEFINISHED = True
 
                             time.sleep(3)
-
-                            questScore = 0
-                            for quest in town.quests:
-                                # quest.finished = True
-                                if quest.finished == True:
-                                    questScore += 1
-
-                            if questScore == 3:
-                                print('huh?')
-
-                    elif townChoice == '4':
+                    elif townChoice == '5':
                         townFinished = True
                         print()
                         print()
@@ -290,29 +285,28 @@ if player.hp <= 0:
     gameOverMessage = '''
 
 
-    ▄████  ▄▄▄       ███▄ ▄███▓▓█████  ▒█████   ██▒   █▓▓█████  ██▀███  
-  ██▒ ▀█▒▒████▄    ▓██▒▀█▀ ██▒▓█   ▀ ▒██▒  ██▒▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
-  ▒██░▄▄▄░▒██  ▀█▄  ▓██    ▓██░▒███   ▒██░  ██▒ ▓██  █▒░▒███   ▓██ ░▄█ ▒
-  ░▓█  ██▓░██▄▄▄▄██ ▒██    ▒██ ▒▓█  ▄ ▒██   ██░  ▒██ █░░▒▓█  ▄ ▒██▀▀█▄  
-  ░▒▓███▀▒ ▓█   ▓██▒▒██▒   ░██▒░▒████▒░ ████▓▒░   ▒▀█░  ░▒████▒░██▓ ▒██▒
-  ░▒   ▒  ▒▒   ▓▒█░░ ▒░   ░  ░░░ ▒░ ░░ ▒░▒░▒░    ░ ▐░  ░░ ▒░ ░░ ▒▓ ░▒▓░
-    ░   ░   ▒   ▒▒ ░░  ░      ░ ░ ░  ░  ░ ▒ ▒░    ░ ░░   ░ ░  ░  ░▒ ░ ▒░
-  ░ ░   ░   ░   ▒   ░      ░      ░   ░ ░ ░ ▒       ░░     ░     ░░   ░ 
-        ░       ░  ░       ░      ░  ░    ░ ░        ░     ░  ░   ░     
-                                                    ░                   
+  ▄████  ▄▄▄       ███▄ ▄███▓▓█████     ▒█████   ██▒   █▓▓█████  ██▀███  
+ ██▒ ▀█▒▒████▄    ▓██▒▀█▀ ██▒▓█   ▀    ▒██▒  ██▒▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
+▒██░▄▄▄░▒██  ▀█▄  ▓██    ▓██░▒███      ▒██░  ██▒ ▓██  █▒░▒███   ▓██ ░▄█ ▒
+░▓█  ██▓░██▄▄▄▄██ ▒██    ▒██ ▒▓█  ▄    ▒██   ██░  ▒██ █░░▒▓█  ▄ ▒██▀▀█▄  
+░▒▓███▀▒ ▓█   ▓██▒▒██▒   ░██▒░▒████▒   ░ ████▓▒░   ▒▀█░  ░▒████▒░██▓ ▒██▒
+ ░▒   ▒  ▒▒   ▓▒█░░ ▒░   ░  ░░░ ▒░ ░   ░ ▒░▒░▒░    ░ ▐░  ░░ ▒░ ░░ ▒▓ ░▒▓░
+  ░   ░   ▒   ▒▒ ░░  ░      ░ ░ ░  ░     ░ ▒ ▒░    ░ ░░   ░ ░  ░  ░▒ ░ ▒░
+░ ░   ░   ░   ▒   ░      ░      ░      ░ ░ ░ ▒       ░░     ░     ░░   ░ 
+      ░       ░  ░       ░      ░  ░       ░ ░        ░     ░  ░   ░     
+                                                     ░                   
 
   '''
 else:
     gameOverMessage = '''
-
-
-  ██╗    ██╗██╗███╗   ██╗███╗   ██╗███████╗██████╗ ██╗██╗██╗      ██╗        ██╗ 
-  ██║    ██║██║████╗  ██║████╗  ██║██╔════╝██╔══██╗██║██║██║     ██╔╝██╗     ╚██╗
-  ██║ █╗ ██║██║██╔██╗ ██║██╔██╗ ██║█████╗  ██████╔╝██║██║██║    ██╔╝ ╚═╝█████╗██║
-  ██║███╗██║██║██║╚██╗██║██║╚██╗██║██╔══╝  ██╔══██╗╚═╝╚═╝╚═╝    ╚██╗ ██╗╚════╝██║
-  ╚███╔███╔╝██║██║ ╚████║██║ ╚████║███████╗██║  ██║██╗██╗██╗     ╚██╗╚═╝     ██╔╝
-  ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝╚═╝      ╚═╝        ╚═╝ 
-
+ _    _ _____ _   _  _   _  ___________ 
+| |  | |_   _| \ | || \ | ||  ___| ___ \
+| |  | | | | |  \| ||  \| || |__ | |_/ /
+| |/\| | | | | . ` || . ` ||  __||    / 
+\  /\  /_| |_| |\  || |\  || |___| |\ \ 
+ \/  \/ \___/\_| \_/\_| \_/\____/\_| \_|
+                                        
+                                        
   '''
 
 print(gameOverMessage)

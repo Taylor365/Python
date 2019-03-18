@@ -55,6 +55,6 @@ def fight(player, enemy):
             player.addItem(item)
         player.addGold(enemy.goldDrop)
         time.sleep(5)
-    # For now, all picked up - later we can choose which items to pick up
+    # TODO:For now, all picked up - later we can choose which items to pick up
 
     return winner

@@ -105,19 +105,20 @@ class InitialiseCharacter(object):
         print('You gained ' + str(newGold) + ' GOLD! Total gold now ' + str(self.gold) + '.')
 
     def combatMoves(self):
-        print('''\nIt's your turn:\n1 - Attack\n2 - Use a Skill\n3 - Use an Item''')
+        print('''\nIt's your turn:\n1 - Attack''')#\n2 - Use a Skill\n3 - Use an Item''')
+        # TODO: Add skills + items
         combatChoice = input('Choose your move: ')
 
         # Character Turns - attack, use skill, use item
 
         if combatChoice == '1':
-            if (self.equipped.get('weaponEquipped') != None):
+            if self.equipped.get('weaponEquipped') != None:
                 return random.randint(self.equipped['weaponEquipped'].damage - 1,
                                       self.equipped['weaponEquipped'].damage + 1)
             else:
                 accident = random.randint(-1, 1)
-                if (accident < 0):
-                    print('\nOh no! You accidently healed the enemy! :/')
+                if accident < 0:
+                    print('\nOh no! You accidentally healed the enemy! :/')
                 return accident
         if combatChoice == '2':
             print('use skill')
@@ -140,7 +141,10 @@ def create(characterChoice):
             weight=100,
             gold=0,
             exp=0,
-            desc='''An old experienced Knight left over from the Crusades. His grey and white hair, scars, and steely gaze are all that remain. He wears an eye patch to cover the hole were his eye used to be, along with rusted armor, a shield that embraces the red and white colours of the Knights Templar...''',
+            desc='''An old experienced Knight left over from the Crusades. 
+            His grey and white hair, scars, and steely gaze are all that remain. 
+            He wears an eye patch to cover the hole were his eye used to be, along with rusted armor,
+             a shield that embraces the red and white colours of the Knights Templar...''',
             equipped={}
         )
 
@@ -150,7 +154,7 @@ def create(characterChoice):
         divineTouch = Skill.InitialiseSkill(
             'Divine Touch', 0, 20, 40, 'Heals the Templar to full HP. Can only be used once!', False)
         cluckVoience = Skill.InitialiseSkill(
-            'Cluck Voience', 0, 50, 100, 'Turns an enemy into a loveable chicken. Only works on normal enemies.', False)
+            'Cluck Voience', 0, 50, 100, 'Turns an enemy into a lovable chicken. Only works on normal enemies.', False)
 
         # Add Skills to Character
         templar.addSkill(bash)
@@ -189,7 +193,8 @@ def create(characterChoice):
             weight=70,
             gold=0,
             exp=0,
-            desc='''He is an old man with limitless amount of magic power from a difrent land. He was the most powerfull out of his kind and now he stands here ready for what what will come to him...''',
+            desc='''He is an old man with limitless amount of magic power from a difrent land. 
+            He was the most powerful out of his kind and now he stands here ready for what what will come to him...''',
             equipped={}
         )
 
@@ -198,9 +203,9 @@ def create(characterChoice):
         fireball = Skill.InitialiseSkill(
             'Fireball', 6, 10, 0, 'Shoots a ball of fire at the enemy.', False)
         splitIllusion = Skill.InitialiseSkill(
-            'Split Ilusion', 0, 20, 40, 'The wizard creates a decoy of himself to shield attacks.', False)
+            'Split Illusion', 0, 20, 40, 'The wizard creates a decoy of himself to shield attacks.', False)
         soulsavior = Skill.InitialiseSkill(
-            'Soulsavior', 0, 50, 100, 'Kills enemy and heals wizard up to full health.', False)
+            'Soul Savior', 0, 50, 100, 'Kills enemy and heals wizard up to full health.', False)
 
         # Add Skills to Character
         wizard.addSkill(fireball)
@@ -239,7 +244,9 @@ def create(characterChoice):
             weight=60,
             gold=0,
             exp=0,
-            desc='''A brave young Archer left over from the battles. He travels mystically around. With him near you, you really would want to turn around and run. Every battle makes him stronger, smarter and last but not least, it makes him want more...''',
+            desc='''A brave young Archer left over from the battles. 
+            He travels mystically around. With him near you, you really would want to turn around and run.
+            Every battle makes him stronger, smarter and last but not least, it makes him want more...''',
             equipped={}
         )
         # Creating Skills
@@ -285,7 +292,10 @@ def create(characterChoice):
             weight=120,
             gold=0,
             exp=0,
-            desc='''A brave young warrior out to fight the whole world. He was sent from the king to do all types of quests. He is a very good damage dealer but is a bit out of shape, through the story he might become fitter, you might even call him OP!''',
+            desc='''A brave young warrior out to fight the whole world. 
+            He was sent from the king to do all types of quests. 
+            He is a very good damage dealer but is a bit out of shape, 
+            through the story he might become fitter, you might even call him Over Powered!''',
             equipped={}
         )
         # name, damage, mpReq, expReq, desc
@@ -309,8 +319,8 @@ def create(characterChoice):
             10)
         copperShield = Shield.InitialiseShield(
             'Copper Shield', 10,
-            'Coppe',
-            'An old metally shield.',
+            'Shield',
+            'An old metal shield.',
             20)
 
         # Adding starting gear to Inventory

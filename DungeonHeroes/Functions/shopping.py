@@ -1,8 +1,8 @@
 def start(player, shop):
     shoppingOver = False
 
-    while shoppingOver != True:
-        shoppingchoice = input ('1 - Buy\n2 - Sell\n3 - Finish\n\nSelect Your Choice: ')
+    while not shoppingOver:
+        shoppingchoice = input('1 - Buy\n2 - Sell\n3 - Finish\n\nSelect Your Choice: ')
         if shoppingchoice == '1':
             if len(shop.inventory) > 0:
                 shop.buychat()
