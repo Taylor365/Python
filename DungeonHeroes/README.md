@@ -1,0 +1,7 @@
+This is a CoderDojo Project between me and 3 students.
+
+The Project is a text based RPG in which the player moves from town to town completing quests, fighting monsters and clearing dungeons.
+
+There are 4 different characters to choose from, different weapons to buy, sell and earn through quests.
+
+Once all dungeons are cleared, the player has won... but if the player dies, that's gameover!
