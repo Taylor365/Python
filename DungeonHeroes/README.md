@@ -5,3 +5,10 @@ The Project is a text based RPG in which the player moves from town to town comp
 There are 4 different characters to choose from, different weapons to buy, sell and earn through quests.
 
 Once all dungeons are cleared, the player has won... but if the player dies, that's gameover!
+
+TODO:
+
+1 - Get skills working
+2 - Integrate items
+3 - Refine shopping system
+4 - Balance
