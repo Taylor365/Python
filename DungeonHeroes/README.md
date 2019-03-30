@@ -8,7 +8,7 @@ Once all dungeons are cleared, the player has won... but if the player dies, tha
 
 TODO:
 
-1 - Get skills working
-2 - Integrate items
-3 - Refine shopping system
+1 - Get skills working<br />
+2 - Integrate items<br />
+3 - Refine shopping system<br />
 4 - Balance
